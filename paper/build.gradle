@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+group 'cc.pollo.texty'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url "https://papermc.io/repo/repository/maven-public/" }
+    mavenCentral()
+}
+
+/*
+publishing {
+    publications {
+        shadow(MavenPublication) {
+            if (project.plugins.hasPlugin('java')) {
+                artifact shadowJar
+            }
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
+}*/
+
+dependencies {
+    api "net.kyori:adventure-text-minimessage:4.1.0-SNAPSHOT"
+    implementation project(":core")
+    implementation "com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT"
+}
